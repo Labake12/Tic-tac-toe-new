@@ -30,18 +30,23 @@ while True:
         print(board)  
     index_list = []
     def take_input(player_name):
-        while True:
-            x = int(input(f"{player_name}: "))
-            x -= 1
-            if 0 <= x < 10:
-                if x in index_list:
-                    print("This spot is blocked")
-                    continue
-                index_list.append(x)
-                return x
-            print("Please enter a number between 1-9")
+        #while True:
+        x = int(input(f"{player_name}: "))
+        x -= 1
+        if 0 <= x < 10:
+            if x in index_list:
+                print("This spot is blocked")
+                #continue
+            index_list.append(x)
+            return x
+        print("Please enter a number between 1-9")
+    player_one_score = 0
+    player_two_score = 0
+    player_one_scores = []
     def calculate_result(player_one, player_two):
         if sign_dictionary[0] == sign_dictionary[1] == sign_dictionary[2] == 'X' or sign_dictionary[1] == sign_dictionary[4] == sign_dictionary[7] == 'X' or sign_dictionary[0] == sign_dictionary[4] == sign_dictionary[8] == 'X' or sign_dictionary[2] == sign_dictionary[5] == sign_dictionary[8] == 'X' or sign_dictionary[3] == sign_dictionary[4] == sign_dictionary[5] == 'X' or sign_dictionary[2] == sign_dictionary[4] == sign_dictionary[6] == 'X' or sign_dictionary[6] == sign_dictionary[7] == sign_dictionary[8] == 'X' or sign_dictionary[0] == sign_dictionary[3] == sign_dictionary[6] == 'X' :
+            player_one_score += 1
+            player_one_scores = player_one_scores.append(player_one_score)
             print(f"Congratulations {player_one}. You won!")
             quit("Thank you both for playing")
         elif sign_dictionary[0] == sign_dictionary[1] == sign_dictionary[2] == 'O' or sign_dictionary[1] == sign_dictionary[4] == sign_dictionary[7] == 'O' or sign_dictionary[0] == sign_dictionary[4] == sign_dictionary[8] == 'O' or sign_dictionary[2] == sign_dictionary[5] == sign_dictionary[8] == 'O' or sign_dictionary[3] == sign_dictionary[4] == sign_dictionary[5] == 'O' or sign_dictionary[2] == sign_dictionary[4] == sign_dictionary[6] == 'O' or sign_dictionary[6] == sign_dictionary[7] == sign_dictionary[8] == 'O' or sign_dictionary[0] == sign_dictionary[3] == sign_dictionary[6] == 'O' :
@@ -71,6 +76,8 @@ while True:
         
             print("\t--------------------------------\n") 
         my_scoreboard(score_board)
+
+
         # 
         # character_count = 0
         # alphabet_count = 0
